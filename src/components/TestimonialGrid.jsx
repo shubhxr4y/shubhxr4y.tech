@@ -59,15 +59,15 @@ const TestimonialGrid = () => {
             <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.3 }}>
               <MessageSquare size={20} color="#ff2d2d" />
             </div>
-            
+
             <div className="terminal-text" style={{ fontSize: '0.6rem', color: '#ff2d2d', marginBottom: '1.5rem' }}>
               SOURCE: VERIFIED_ENCRYPTED
             </div>
 
-            <p style={{ 
-              fontFamily: 'var(--font-header)', 
-              fontSize: '1.1rem', 
-              lineHeight: 1.4, 
+            <p style={{
+              fontFamily: 'var(--font-header)',
+              fontSize: '1.1rem',
+              lineHeight: 1.4,
               color: '#f5f5f5',
               marginBottom: '2rem'
             }}>
@@ -80,10 +80,10 @@ const TestimonialGrid = () => {
                   <h4 style={{ fontFamily: 'Anton', fontSize: '1.2rem', color: '#ff2d2d' }}>{t.name}</h4>
                   <span className="terminal-text" style={{ fontSize: '0.6rem', opacity: 0.5 }}>{t.role}</span>
                 </div>
-                <div style={{ 
-                  background: 'rgba(255,45,45,0.1)', 
-                  padding: '4px 10px', 
-                  fontFamily: 'var(--font-mono)', 
+                <div style={{
+                  background: 'rgba(255,45,45,0.1)',
+                  padding: '4px 10px',
+                  fontFamily: 'var(--font-mono)',
                   color: '#ff2d2d',
                   fontSize: '0.7rem'
                 }}>

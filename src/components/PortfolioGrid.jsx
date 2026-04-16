@@ -115,7 +115,7 @@ const ProjectCard = ({ project, playSound, isMobile, isTablet }) => {
     >
       {/* Image */}
       <div style={{
-        aspectRatio: ['01','04'].includes(project.id) ? '16/9' : '4/3',
+        aspectRatio: ['01', '04'].includes(project.id) ? '16/9' : '4/3',
         backgroundColor: '#0a0a0a',
         position: 'relative',
         overflow: 'hidden',
@@ -244,8 +244,8 @@ const PortfolioGrid = () => {
           <h2 style={{ fontFamily: 'var(--font-header)', fontSize: isMobile ? '2.5rem' : '4rem', marginTop: '1rem' }}>SELECTED DEPLOYMENTS</h2>
         </div>
         <div style={{ textAlign: isMobile ? 'left' : 'right', opacity: 0.5, fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>
-          TOTAL_RECORDS: 05<br/>
-          FILTER: HIGH_PRIORITY<br/>
+          TOTAL_RECORDS: 05<br />
+          FILTER: HIGH_PRIORITY<br />
           <span style={{ color: '#ff2d2d', opacity: 1 }}>LIVE: 02</span>
         </div>
       </div>

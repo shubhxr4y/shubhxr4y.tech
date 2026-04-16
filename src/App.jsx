@@ -10,9 +10,20 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import WorkPage from './pages/WorkPage';
 import BookingPage from './pages/BookingPage';
-
 function App() {
-  const [isBooted, setIsBooted] = useState(false);
+  const [isBooted, setIsBooted] = useState(() => {
+    // Splash screen should only show on the Home Page and only once per session
+    const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+    const hasBooted = sessionStorage.getItem('system_boot_complete');
+    
+    // If we're not on the home page or we've already booted, skip splash
+    return !isHomePage || !!hasBooted;
+  });
+
+  const handleBootComplete = () => {
+    sessionStorage.setItem('system_boot_complete', 'true');
+    setIsBooted(true);
+  };
 
   return (
     <AudioProvider>
@@ -24,7 +35,7 @@ function App() {
           
           <AnimatePresence mode="wait">
             {!isBooted ? (
-              <SplashScreen key="splash" onComplete={() => setIsBooted(true)} />
+              <SplashScreen key="splash" onComplete={handleBootComplete} />
             ) : (
               <MainLayout key="main">
                 <Routes>

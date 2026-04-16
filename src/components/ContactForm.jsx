@@ -15,16 +15,34 @@ const ContactForm = () => {
   });
   const [status, setStatus] = useState('IDLE'); // IDLE, SENDING, SUCCESS, ERROR
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     playSound('click');
     setStatus('SENDING');
-    
-    // Simulate system transmission
-    setTimeout(() => {
-      setStatus('SUCCESS');
-      playSound('boot');
-    }, 2000);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('SUCCESS');
+        playSound('boot');
+      } else {
+        throw new Error(result.message || 'TRANSMISSION_ERROR');
+      }
+    } catch (error) {
+      console.error('CONTACT_SYNC_FAILED:', error);
+      setStatus('ERROR');
+      // Fallback for UX
+      setTimeout(() => setStatus('IDLE'), 3000);
+    }
   };
 
   const handleChange = (e) => {
@@ -40,7 +58,7 @@ const ContactForm = () => {
         </div>
 
         <div style={{ marginBottom: '3rem', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', opacity: 0.7 }}>
-          WARNING: ALL TRANSMISSIONS ARE ENCRYPTED. <br/>
+          WARNING: ALL TRANSMISSIONS ARE ENCRYPTED. <br />
           CONNECTION_TYPE: TLS.1.3_AEAD
         </div>
 
@@ -48,8 +66,8 @@ const ContactForm = () => {
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
             <div className="input-field">
               <label style={{ display: 'block', fontSize: '0.7rem', color: '#ff2d2d', marginBottom: '0.5rem' }}>ENTER NAME</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 name="name"
                 required
                 value={formData.name}
@@ -68,8 +86,8 @@ const ContactForm = () => {
             </div>
             <div className="input-field">
               <label style={{ display: 'block', fontSize: '0.7rem', color: '#ff2d2d', marginBottom: '0.5rem' }}>ENTER EMAIL</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 name="email"
                 required
                 value={formData.email}
@@ -90,7 +108,7 @@ const ContactForm = () => {
 
           <div style={{ marginBottom: '2rem' }}>
             <label style={{ display: 'block', fontSize: '0.7rem', color: '#ff2d2d', marginBottom: '0.5rem' }}>PROJECT TYPE</label>
-            <select 
+            <select
               name="type"
               value={formData.type}
               onChange={handleChange}
@@ -112,7 +130,7 @@ const ContactForm = () => {
 
           <div style={{ marginBottom: '3rem' }}>
             <label style={{ display: 'block', fontSize: '0.7rem', color: '#ff2d2d', marginBottom: '0.5rem' }}>MESSAGE LOG</label>
-            <textarea 
+            <textarea
               name="message"
               required
               rows="4"
@@ -174,7 +192,7 @@ const ContactForm = () => {
             >
               <h2 style={{ fontFamily: 'var(--font-header)', color: '#ff2d2d', marginBottom: '1rem' }}>MESSAGE SENT</h2>
               <p className="terminal-text" style={{ textAlign: 'center' }}>WE WILL CONTACT YOU SHORTLY // END_OF_LINE</p>
-              <button 
+              <button
                 onClick={() => setStatus('IDLE')}
                 style={{ marginTop: '2rem', background: '#ff2d2d', border: 'none', padding: '0.5rem 1rem', cursor: 'pointer' }}
               >

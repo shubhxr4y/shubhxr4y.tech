@@ -35,57 +35,57 @@ const Services = () => {
       </video>
 
       <div style={{ position: 'relative', zIndex: 1 }}>
-      <div style={{ marginBottom: '5rem' }}>
-        <span className="terminal-text" style={{ color: '#ff2d2d' }}>// CAPABILITIES</span>
-        <h2 style={{ fontFamily: 'Anton', fontSize: '5rem', marginTop: '1rem' }}>SYSTEM MODULES</h2>
-      </div>
+        <div style={{ marginBottom: '5rem' }}>
+          <span className="terminal-text" style={{ color: '#ff2d2d' }}>// CAPABILITIES</span>
+          <h2 style={{ fontFamily: 'Anton', fontSize: '5rem', marginTop: '1rem' }}>SYSTEM MODULES</h2>
+        </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
-        {services.map((service) => (
-          <motion.div
-            key={service.id}
-            onMouseEnter={() => playSound('hover')}
-            className="interactive"
-            whileHover={{ borderColor: '#ff2d2d' }}
-            style={{
-              background: '#0a0a0a',
-              padding: '4rem 2rem',
-              position: 'relative',
-              overflow: 'hidden',
-              border: '1px solid rgba(245,245,245,0.1)'
-            }}
-          >
-            <div style={{ position: 'absolute', top: '10%', right: '5%', opacity: 0.1, fontFamily: 'Anton', fontSize: '8rem' }}>
-              {service.id}
-            </div>
-
-            <span className="terminal-text" style={{ color: '#ff2d2d', fontSize: '0.7rem' }}>MOD_TYPE: {service.depth}</span>
-            <div className="terminal-text" style={{ fontSize: '0.5rem', opacity: 0.35, marginTop: '0.3rem' }}>{service.lore}</div>
-            <h3 style={{ 
-              fontFamily: 'Anton', 
-              fontSize: '2.5rem', 
-              marginTop: '1.5rem',
-              letterSpacing: '2px'
-            }}>
-              {service.title}
-            </h3>
-            
-            <p style={{ marginTop: '1rem', opacity: 0.6, maxWidth: '80%' }}>
-              {service.desc}
-            </p>
-
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+          {services.map((service) => (
             <motion.div
+              key={service.id}
+              onMouseEnter={() => playSound('hover')}
+              className="interactive"
+              whileHover={{ borderColor: '#ff2d2d' }}
               style={{
-                width: '0%',
-                height: '2px',
-                background: '#ff2d2d',
-                marginTop: '2rem'
+                background: '#0a0a0a',
+                padding: '4rem 2rem',
+                position: 'relative',
+                overflow: 'hidden',
+                border: '1px solid rgba(245,245,245,0.1)'
               }}
-              whileHover={{ width: '100%' }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.div>
-        ))}
+            >
+              <div style={{ position: 'absolute', top: '10%', right: '5%', opacity: 0.1, fontFamily: 'Anton', fontSize: '8rem' }}>
+                {service.id}
+              </div>
+
+              <span className="terminal-text" style={{ color: '#ff2d2d', fontSize: '0.7rem' }}>MOD_TYPE: {service.depth}</span>
+              <div className="terminal-text" style={{ fontSize: '0.5rem', opacity: 0.35, marginTop: '0.3rem' }}>{service.lore}</div>
+              <h3 style={{
+                fontFamily: 'Anton',
+                fontSize: '2.5rem',
+                marginTop: '1.5rem',
+                letterSpacing: '2px'
+              }}>
+                {service.title}
+              </h3>
+
+              <p style={{ marginTop: '1rem', opacity: 0.6, maxWidth: '80%' }}>
+                {service.desc}
+              </p>
+
+              <motion.div
+                style={{
+                  width: '0%',
+                  height: '2px',
+                  background: '#ff2d2d',
+                  marginTop: '2rem'
+                }}
+                whileHover={{ width: '100%' }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

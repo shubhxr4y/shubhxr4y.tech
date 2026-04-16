@@ -83,34 +83,71 @@ const SplashScreen = ({ onComplete }) => {
               animate={{ opacity: 1, y: 0 }}
               style={{ textAlign: 'center' }}
             >
-              <motion.h1 
-                style={{ 
-                  fontFamily: "'Orbitron', sans-serif", 
-                  fontSize: 'clamp(2rem, 10vw, 4rem)', 
-                  marginBottom: '2.5rem',
-                  letterSpacing: '2px',
-                  fontWeight: 900,
-                  color: '#fcee0a',
-                  textTransform: 'uppercase',
+              <motion.div
+                style={{
                   position: 'relative',
                   display: 'inline-block',
-                  textShadow: '3px 3px 0px #000, 5px 5px 0px #ff2d2d'
                 }}
-                animate={{ 
-                  skewX: [-15, -12, -18, -15],
-                  x: [0, -2, 2, 0],
-                  filter: [
-                    'drop-shadow(0 0 0px #fcee0a)',
-                    'drop-shadow(2px 0 5px #ff2d2d)',
-                    'drop-shadow(-2px 0 5px #00f0ff)',
-                    'drop-shadow(0 0 0px #fcee0a)'
-                  ]
-                }}
-                transition={{ repeat: Infinity, duration: 0.15, repeatDelay: 3 }}
               >
-                ENGINEER'S<br/>WORKSHOP
-              </motion.h1>
-              
+                {/* Cyberpunk Style Extended Bar Top */}
+                <div style={{
+                  position: 'absolute',
+                  top: '12%',
+                  left: '-15%',
+                  width: '30%',
+                  height: '4px',
+                  background: 'var(--red)',
+                  transform: 'skewX(-20deg)',
+                  boxShadow: '0 0 10px var(--red)'
+                }} />
+
+                <motion.h1
+                  style={{
+                    fontFamily: "'Orbitron', sans-serif",
+                    fontSize: 'clamp(2.5rem, 12vw, 5rem)',
+                    marginBottom: '2.5rem',
+                    letterSpacing: '-2px',
+                    fontWeight: 900,
+                    color: 'var(--red)',
+                    textTransform: 'uppercase',
+                    position: 'relative',
+                    textAlign: 'center',
+                    lineHeight: 0.85,
+                    transform: 'skewX(-20deg)',
+                    textShadow: `
+                      2px 2px 0px #000,
+                      -1px -1px 0px rgba(255,255,255,0.2)
+                    `,
+                    WebkitTextStroke: '1px rgba(255,45,45,0.3)',
+                    clipPath: 'polygon(0% 0%, 100% 0%, 100% 45%, 95% 50%, 100% 55%, 100% 100%, 0% 100%, 0% 55%, 5% 50%, 0% 45%)', // Mechanical notches
+                  }}
+                  animate={{
+                    x: [0, -1, 1, 0],
+                    filter: [
+                      'drop-shadow(0 0 2px var(--red))',
+                      'drop-shadow(2px 0 0px #00f0ff)',
+                      'drop-shadow(-2px 0 0px #ff0055)',
+                      'drop-shadow(0 0 2px var(--red))'
+                    ]
+                  }}
+                  transition={{ repeat: Infinity, duration: 0.2, repeatDelay: 2 }}
+                >
+                  ENGINEER'S<br />WORKSHOP
+                </motion.h1>
+
+                {/* Cyberpunk Style Extended Bar Bottom */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '12%',
+                  right: '-15%',
+                  width: '40%',
+                  height: '4px',
+                  background: 'var(--red)',
+                  transform: 'skewX(-20deg)',
+                  boxShadow: '0 0 10px var(--red)'
+                }} />
+              </motion.div>
+
               <motion.button
                 onClick={() => {
                   playSound('click');

@@ -5,11 +5,13 @@
   --white: #f5f5f5;
   --red: #ff2d2d;
   --red-dim: #9b1b1b;
-  --font-header: 'Anton', 'Orbitron', sans-serif; /* High impact font */
+  --font-header: 'Anton', 'Orbitron', sans-serif;
+  /* High impact font */
   --font-body: 'Rajdhani', sans-serif;
   --font-mono: 'Space Mono', monospace;
   --scanline-color: rgba(255, 45, 45, 0.05);
-  --noise-opacity: 0.08; /* Increased for MMH feel */
+  --noise-opacity: 0.08;
+  /* Increased for MMH feel */
 }
 
 /* Global Noise Texture */
@@ -27,8 +29,13 @@
 }
 
 @keyframes noise-move {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(1%, 1%); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(1%, 1%);
+  }
 }
 
 * {
@@ -104,6 +111,7 @@ body {
 
 /* ── Responsive / Mobile ─────────────────────────────── */
 @media (max-width: 767px) {
+
   /* Restore native cursor on mobile/touch */
   * {
     cursor: auto !important;

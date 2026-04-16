@@ -12,12 +12,12 @@ const NoiseCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     const draw = () => {
-      canvas.width  = canvas.offsetWidth;
+      canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
       const imageData = ctx.createImageData(canvas.width, canvas.height);
       for (let i = 0; i < imageData.data.length; i += 4) {
         const v = Math.random() * 255;
-        imageData.data[i]     = v;
+        imageData.data[i] = v;
         imageData.data[i + 1] = v;
         imageData.data[i + 2] = v;
         imageData.data[i + 3] = Math.random() * 18; // very subtle
@@ -76,12 +76,16 @@ const Corner = ({ pos }) => {
   const isBottom = pos.includes('b');
   return (
     <div style={{ position: 'absolute', ...s, width: 20, height: 20 }}>
-      <div style={{ position: 'absolute', top: isBottom ? 'auto' : 0, bottom: isBottom ? 0 : 'auto',
+      <div style={{
+        position: 'absolute', top: isBottom ? 'auto' : 0, bottom: isBottom ? 0 : 'auto',
         left: isRight ? 'auto' : 0, right: isRight ? 0 : 'auto',
-        width: 20, height: 2, background: '#ff2d2d' }} />
-      <div style={{ position: 'absolute', top: isBottom ? 'auto' : 0, bottom: isBottom ? 0 : 'auto',
+        width: 20, height: 2, background: '#ff2d2d'
+      }} />
+      <div style={{
+        position: 'absolute', top: isBottom ? 'auto' : 0, bottom: isBottom ? 0 : 'auto',
         left: isRight ? 'auto' : 0, right: isRight ? 0 : 'auto',
-        width: 2, height: 20, background: '#ff2d2d' }} />
+        width: 2, height: 20, background: '#ff2d2d'
+      }} />
     </div>
   );
 };
@@ -368,38 +372,38 @@ const Hero = () => {
 
         {/* ── BOTTOM RIGHT: Tagline + quote — hidden on mobile ── */}
         {!isMobile && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.75 }}
-          style={{
-            position: 'absolute', bottom: '8%', right: '5%',
-            textAlign: 'right', maxWidth: isTablet ? 200 : 280,
-          }}
-        >
-          <div style={{
-            fontFamily: "'Anton', sans-serif",
-            fontSize: 'clamp(0.7rem, 1.4vw, 1rem)',
-            color: 'rgba(245,245,245,0.35)',
-            letterSpacing: 3,
-            textTransform: 'uppercase',
-            marginBottom: '0.7rem',
-          }}>
-            コードで未来を構築する。
-          </div>
-          <div style={{
-            fontFamily: "'Rajdhani', sans-serif",
-            fontWeight: 500,
-            fontSize: '0.78rem',
-            color: 'rgba(245,245,245,0.5)',
-            lineHeight: 1.65,
-            textTransform: 'uppercase',
-            letterSpacing: 1,
-          }}>
-            "THE SYSTEM IS COMPLEX.<br />
-            I'LL ARCHITECT THE SOLUTION..."
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.75 }}
+            style={{
+              position: 'absolute', bottom: '8%', right: '5%',
+              textAlign: 'right', maxWidth: isTablet ? 200 : 280,
+            }}
+          >
+            <div style={{
+              fontFamily: "'Anton', sans-serif",
+              fontSize: 'clamp(0.7rem, 1.4vw, 1rem)',
+              color: 'rgba(245,245,245,0.35)',
+              letterSpacing: 3,
+              textTransform: 'uppercase',
+              marginBottom: '0.7rem',
+            }}>
+              コードで未来を構築する。
+            </div>
+            <div style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              fontWeight: 500,
+              fontSize: '0.78rem',
+              color: 'rgba(245,245,245,0.5)',
+              lineHeight: 1.65,
+              textTransform: 'uppercase',
+              letterSpacing: 1,
+            }}>
+              "THE SYSTEM IS COMPLEX.<br />
+              I'LL ARCHITECT THE SOLUTION..."
+            </div>
+          </motion.div>
         )}
 
         {/* ── Horizontal rule lines top & bottom ── */}

@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAudio } from '../context/AudioContext';
 import { Volume2, VolumeX, Calendar } from 'lucide-react';
 import useWindowWidth from '../hooks/useWindowWidth';
-import logoImg from '../assets/images/logo.webp';
+import logoImg from '../assets/images/logo_transparent.png';
 
 const MainLayout = ({ children }) => {
   const { isMuted, toggleMute, playSound } = useAudio();
@@ -40,8 +40,8 @@ const MainLayout = ({ children }) => {
         zIndex: 100,
         background: 'linear-gradient(to bottom, #000 0%, transparent 100%)'
       }}>
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           onClick={() => playSound('click')}
           className="interactive"
           style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', color: 'inherit' }}
@@ -54,13 +54,9 @@ const MainLayout = ({ children }) => {
               width: 'auto',
               objectFit: 'contain',
               display: 'block',
-              mixBlendMode: 'screen', // This removes the black background
             }}
           />
-          <span className="impact-text" style={{ 
-            letterSpacing: '2px', 
-            fontSize: isMobile ? '1rem' : '1.5rem',
-          }}>
+          <span className="impact-text" style={{ letterSpacing: '2px', fontSize: isMobile ? '1rem' : '1.5rem' }}>
             ENGINEER'S {!isMobile && 'WORKSHOP'}
           </span>
         </Link>
@@ -74,9 +70,9 @@ const MainLayout = ({ children }) => {
                 onMouseEnter={() => playSound('hover')}
                 onClick={() => playSound('click')}
                 className="interactive terminal-text"
-                style={{ 
-                  textDecoration: 'none', 
-                  color: 'var(--white)', 
+                style={{
+                  textDecoration: 'none',
+                  color: 'var(--white)',
                   fontSize: isMobile ? '0.6rem' : '0.7rem',
                   opacity: 0.7
                 }}
@@ -92,16 +88,16 @@ const MainLayout = ({ children }) => {
             </div>
           )}
 
-          <button 
+          <button
             onClick={() => {
               toggleMute();
               playSound('click');
             }}
             className="interactive"
-            style={{ 
-              background: 'none', 
-              border: 'none', 
-              color: 'var(--white)', 
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--white)',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center'
@@ -138,11 +134,11 @@ const MainLayout = ({ children }) => {
         color: 'rgba(245,245,245,0.5)'
       }}>
         <div>
-           <span>© 2026 ENGINEER'S WORKSHOP // SaaS_CORE_V2.0</span><br/>
-           <span style={{ color: '#ff2d2d' }}>TRANSFORMING COMPLEXITY INTO CONVERSION.</span>
+          <span>© 2026 ENGINEER'S WORKSHOP // SaaS_CORE_V2.0</span><br />
+          <span style={{ color: '#ff2d2d' }}>TRANSFORMING COMPLEXITY INTO CONVERSION.</span>
         </div>
         <div style={{ textAlign: 'right' }}>
-          <span>LATENCY: 12MS // STATUS: CONNECTED</span><br/>
+          <span>LATENCY: 12MS // STATUS: CONNECTED</span><br />
           <span>ENCRYPTION: AES-256-GCM</span>
         </div>
       </footer>

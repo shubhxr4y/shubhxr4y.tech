@@ -72,7 +72,7 @@ const AboutPage = () => {
 
         {/* Main Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '3rem' : '6rem', maxWidth: '1100px', margin: '0 auto', alignItems: 'start' }}>
-          
+
           {/* Left / Story */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -139,7 +139,7 @@ const AboutPage = () => {
                     className="terminal-text"
                     style={{ fontSize: '0.55rem', color: i % 2 === 0 ? '#ff2d2d' : 'rgba(245,245,245,0.4)', marginBottom: '0.6rem' }}
                   >
-                    <span style={{ color: 'rgba(255,45,45,0.4)', marginRight: '0.5rem' }}>[{String(i).padStart(2,'0')}]</span>{line}
+                    <span style={{ color: 'rgba(255,45,45,0.4)', marginRight: '0.5rem' }}>[{String(i).padStart(2, '0')}]</span>{line}
                   </motion.div>
                 ))}
               </div>
