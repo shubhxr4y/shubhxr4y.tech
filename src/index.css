@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --black: #000000;
+  --white: #f5f5f5;
+  --red: #ff2d2d;
+  --red-dim: #9b1b1b;
+  --font-header: 'Anton', 'Orbitron', sans-serif; /* High impact font */
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --scanline-color: rgba(255, 45, 45, 0.05);
+  --noise-opacity: 0.08; /* Increased for MMH feel */
+}
+
+/* Global Noise Texture */
+.noise-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: 9998;
+  animation: noise-move 0.2s infinite alternate;
+}
+
+@keyframes noise-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(1%, 1%); }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* MMH Style High Impact Text */
+.impact-text {
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.terminal-text {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+}
+
+/* Services Ticker */
+.ticker-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--white);
+  color: var(--black);
+  padding: 1rem 0;
+  border-top: 1px solid var(--red);
+  border-bottom: 1px solid var(--red);
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 4rem;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Floating Action Button */
+.fab-booking {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--red);
+  color: var(--black);
+  padding: 1rem 2rem;
+  font-family: var(--font-header);
+  font-weight: bold;
+  z-index: 1000;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 10px 10px 0px var(--white);
+  transition: transform 0.1s;
+}
+
+.fab-booking:active {
+  transform: translate(5px, 5px);
+  box-shadow: 5px 5px 0px var(--white);
+}
+
+/* ── Responsive / Mobile ─────────────────────────────── */
+@media (max-width: 767px) {
+  /* Restore native cursor on mobile/touch */
+  * {
+    cursor: auto !important;
+  }
+
+  /* FAB — compact icon-only pill on mobile */
+  .fab-booking {
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    box-shadow: 4px 4px 0px var(--white);
+    letter-spacing: 1px;
+  }
+
+  /* Ticker — smaller text on mobile */
+  .ticker-item {
+    font-size: 1rem;
+    padding: 0 2rem;
+  }
+
+  /* Terminal text — slightly smaller on mobile */
+  .terminal-text {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fab-booking {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.65rem;
+  }
+}
