@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAudio } from '../context/AudioContext';
 import { Volume2, VolumeX, Calendar } from 'lucide-react';
 import useWindowWidth from '../hooks/useWindowWidth';
-import logoImg from '../assets/images/logo_transparent.png';
+import logoImg from '../assets/images/logo.webp';
 
 const MainLayout = ({ children }) => {
   const { isMuted, toggleMute, playSound } = useAudio();
@@ -54,9 +54,13 @@ const MainLayout = ({ children }) => {
               width: 'auto',
               objectFit: 'contain',
               display: 'block',
+              mixBlendMode: 'screen', // This removes the black background
             }}
           />
-          <span className="impact-text" style={{ letterSpacing: '2px', fontSize: isMobile ? '1rem' : '1.5rem' }}>
+          <span className="impact-text" style={{ 
+            letterSpacing: '2px', 
+            fontSize: isMobile ? '1rem' : '1.5rem',
+          }}>
             ENGINEER'S {!isMobile && 'WORKSHOP'}
           </span>
         </Link>

@@ -85,13 +85,28 @@ const SplashScreen = ({ onComplete }) => {
             >
               <motion.h1 
                 style={{ 
-                  fontFamily: 'var(--font-header)', 
-                  fontSize: '3rem', 
-                  marginBottom: '2rem',
-                  letterSpacing: '10px'
+                  fontFamily: "'Orbitron', sans-serif", 
+                  fontSize: 'clamp(2rem, 10vw, 4rem)', 
+                  marginBottom: '2.5rem',
+                  letterSpacing: '2px',
+                  fontWeight: 900,
+                  color: '#fcee0a',
+                  textTransform: 'uppercase',
+                  position: 'relative',
+                  display: 'inline-block',
+                  textShadow: '3px 3px 0px #000, 5px 5px 0px #ff2d2d'
                 }}
-                animate={{ skewX: [0, -10, 10, 0], x: [0, -5, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 0.2, repeatDelay: 2 }}
+                animate={{ 
+                  skewX: [-15, -12, -18, -15],
+                  x: [0, -2, 2, 0],
+                  filter: [
+                    'drop-shadow(0 0 0px #fcee0a)',
+                    'drop-shadow(2px 0 5px #ff2d2d)',
+                    'drop-shadow(-2px 0 5px #00f0ff)',
+                    'drop-shadow(0 0 0px #fcee0a)'
+                  ]
+                }}
+                transition={{ repeat: Infinity, duration: 0.15, repeatDelay: 3 }}
               >
                 ENGINEER'S<br/>WORKSHOP
               </motion.h1>
