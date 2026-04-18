@@ -23,7 +23,7 @@ app.get('/api/health', (req, res) => {
 app.post('/api/send-email', async (req, res) => {
   const { name, email, type, message, date, time } = req.body;
 
-  const fromEmail = 'onboarding@resend.dev'; 
+  const fromEmail = process.env.EMAIL_FROM || 'onboarding@resend.dev'; 
   const toEmail = process.env.EMAIL_RECEIVER || 'Xports.34@gmail.com';
 
   try {
